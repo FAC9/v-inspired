@@ -4,16 +4,16 @@ const fs = require('fs');
 const path = require('path');
 const Yoti = require('yoti-node-sdk');
 
-const CLIENT_SDK_TD = ' 63ed9e94-3ead-47a9-817a-af47b7c783db';
+const CLIENT_SDK_ID = 'e2d30c07-90e8-4e68-bdd1-691b4242d0f9';
 
 const server = new Hapi.Server();
-const yoti_key = fs.readFileSync(path.join(__dirname, "./keys/yoti-key.pem"));
+const yoti_key = fs.readFileSync(path.join(__dirname, './keys/yoti-key.pem'));
 
-var client = new Yoti(CLIENT_SDK_TD, yoti_key);
+var client = new Yoti(CLIENT_SDK_ID, yoti_key);
 
 const tls = {
-  key: fs.readFileSync(path.join(__dirname, './keys/key.pem')),
-  cert: fs.readFileSync(path.join(__dirname, './keys/cert.pem')),
+  key: fs.readFileSync(path.join(__dirname, './keys/key.pem'), 'utf8'),
+  cert: fs.readFileSync(path.join(__dirname, './keys/cert.pem'), 'utf8'),
 };
 
 const routes = [
@@ -28,18 +28,33 @@ const routes = [
   }, {
     method: 'GET',
     path: '/event/1/start',
-    handler: (request, response) => {
-      response("hello, successful, yay!");
+    handler: (request, reply) => {
+      const token = request.query.token;
+      if(!token) { return reply('No token found'); }
+
+      client.getActivityDetails(token)
+        .then(activityDetails => {
+          return reply({
+            userId: activityDetails.getUserId(),
+            profile: activityDetails.getUserProfile(),
+            outcome: activityDetails.getOutcome(),
+            timestamp: Date.now()
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          return reply('Error');
+        });
     }
   }
-
-]
+];
 
 server.register([Inert], (err) => {
 
   server.connection({
     port: process.env.PORT || 3456,
-    tls: tls, });
+    tls: tls
+  });
 
   server.route(routes);
 
