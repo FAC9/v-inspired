@@ -9,12 +9,22 @@ const CLIENT_SDK_ID = 'e2d30c07-90e8-4e68-bdd1-691b4242d0f9';
 const server = new Hapi.Server();
 const yoti_key = fs.readFileSync(path.join(__dirname, './keys/yoti-key.pem'));
 
-var client = new Yoti(CLIENT_SDK_ID, yoti_key);
+const client = new Yoti(CLIENT_SDK_ID, yoti_key);
 
 const tls = {
   key: fs.readFileSync(path.join(__dirname, './keys/key.pem'), 'utf8'),
   cert: fs.readFileSync(path.join(__dirname, './keys/cert.pem'), 'utf8'),
 };
+
+let users = {};
+
+function userSignIn (user) {
+  users[user.userId] = {
+    userId: user.userId,
+    email: user.profile.emailAddress,
+    login_time: Date.now(),
+  }
+}
 
 const routes = [
   {
@@ -25,7 +35,8 @@ const routes = [
         path: 'public'
       }
     }
-  }, {
+  },
+  {
     method: 'GET',
     path: '/event/1/start',
     handler: (request, reply) => {
@@ -33,18 +44,18 @@ const routes = [
       if(!token) { return reply('No token found'); }
 
       client.getActivityDetails(token)
-        .then(activityDetails => {
-          return reply({
-            userId: activityDetails.getUserId(),
-            profile: activityDetails.getUserProfile(),
-            outcome: activityDetails.getOutcome(),
-            timestamp: Date.now()
-          });
-        })
-        .catch(err => {
-          console.log(err);
-          return reply('Error');
-        });
+      .then(activityDetails => {
+        let user = {
+          userId: activityDetails.getUserId(),
+          profile: activityDetails.getUserProfile(),
+        };
+        userSignIn(user);
+        return reply('Hello ' + user.profile.givenNames);
+      })
+      .catch(err => {
+        console.log(err);
+        return reply('Error');
+      });
     }
   }
 ];
