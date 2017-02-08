@@ -49,6 +49,12 @@ const routes = [
           userId: activityDetails.getUserId(),
           profile: activityDetails.getUserProfile(),
         };
+
+        if (users[user.userId]) {
+           total_time = Date.now() - users[user.userId].login_time;
+           delete users[user.userId];
+           return reply(total_time / 1000);
+        }
         userSignIn(user);
         return reply('Hello ' + user.profile.givenNames);
       })
