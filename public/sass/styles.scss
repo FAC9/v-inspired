@@ -1,8 +1,71 @@
+$purple: indigo;
+$transPurple: rgba(66, 19, 90, 0.5);
+$transPurpleDarker: rgba(66, 19, 90, 0.8);
+$blue: #25ABCA;
+$green: #B3C92B;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica;
+  letter-spacing: 1.5px;
+  color: #fff;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+.landing-page-background {
+  background: linear-gradient(
+    $transPurple,
+    $transPurpleDarker
+  ),
+  url("../media/volunteer.jpg");
+  background-size: cover;
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
+.landing-buttons-container {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  a, a:hover, a:visited, a:active {
+    align-self: center;
+    margin: 50px;
+    text-decoration: none;
+    color: #fff;
+    padding: 30px;
+    font-size: 20px;
+  }
+
+  .btn-arrive {
+    background-color: $blue;
+  }
+
+  .btn-leave {
+    background-color: $green;
+  }
+}
+
 .qr {
   height: 200px;
 }
 
 .nav {
   height: 100px;
-  background-color: indigo;
+  width: 100%;
+  background-color: $purple;
 }
