@@ -33,6 +33,13 @@ function userSignIn (user) {
 const routes = [
   {
     method: 'GET',
+    path: '/',
+    handler: (request, reply) => {
+      return reply.view('index.hbs');
+    }
+  },
+  {
+    method: 'GET',
     path: '/{param*}',
     handler: {
       directory: {
@@ -57,13 +64,13 @@ const routes = [
         if (users[user.userId]) {
            total_time = Date.now() - users[user.userId].login_time;
            delete users[user.userId];
-           return reply.view('thank-you', {
+           return reply.view('thank-you.hbs', {
              name: user.profile.givenNames,
              time: total_time / 1000
            })
         }
         userSignIn(user);
-        return reply.view('thank-you', {
+        return reply.view('welcome.hbs', {
           name: user.profile.givenNames
         });
       })
@@ -89,10 +96,13 @@ server.register([Inert, Vision], (err) => {
 
   server.views({
     engines: {
-      hbs: require('handlebars')
+      hbs: require('handlebars'),
+      html: require('handlebars')
     },
     relativeTo: __dirname,
     path: './public/templates',
+    layoutPath: './public/templates/layout',
+    layout: 'default'
   });
 
   server.route(routes);

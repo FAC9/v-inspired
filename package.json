@@ -6,6 +6,7 @@
   "scripts": {
     "buildCss": "sass --watch sass/styles.scss:public/static/styles.css",
     "devStart": "nodemon server.js",
+    "build:serve": "npm run buildCss | npm run devStart",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "zip-repo": "git archive --format=zip HEAD > vinspired.zip"

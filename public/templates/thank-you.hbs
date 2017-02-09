@@ -1,22 +1,8 @@
-<head>
-  <title>V-Inspired and Yoti</title>
-  <link rel="stylesheet" href="/static/styles.css">
-</head>
+{{!< layout/default}}
 
-<body>
-  <nav class="nav">
-    <h1>VINSPIRED</h1>
-  </nav>
+<div class="message">
+  <h1>Hi {{name}}</h1>
+  <p>You volunteered for {{time}} today</p>
+  <a class="btn" href="/">OK</a>
+</div>
 
-  <div class="landing-page-background">
-    <h2>Yoti's volunteering event</h2>
-  </div>
-  <div class="message">
-    <p>Hi {{name}}</p>
-    {{#if time}}
-      <p>You volunteered for {{time}} today</p>
-    {{/if}}
-  </div>
-
-
-</body>
