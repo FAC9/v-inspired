@@ -2,12 +2,13 @@
   "name": "v-inspired",
   "version": "1.0.0",
   "description": "Yoti hack day - V-inspired",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "buildCss": "sass --watch sass/styles.scss:public/static/styles.css",
     "devStart": "nodemon server.js",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "zip-repo": "git archive --format=zip HEAD > vinspired.zip"
   },
   "repository": {
     "type": "git",
