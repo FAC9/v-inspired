@@ -70,7 +70,7 @@ const routes = [
            })
         }
         userSignIn(user);
-        return reply.view('thank-you.hbs', {
+        return reply.view('welcome.hbs', {
           name: user.profile.givenNames
         });
       })
