@@ -33,6 +33,13 @@ function userSignIn (user) {
 const routes = [
   {
     method: 'GET',
+    path: '/',
+    handler: (request, reply) => {
+      return reply.view('index.hbs');
+    }
+  },
+  {
+    method: 'GET',
     path: '/{param*}',
     handler: {
       directory: {
@@ -89,10 +96,13 @@ server.register([Inert, Vision], (err) => {
 
   server.views({
     engines: {
-      hbs: require('handlebars')
+      hbs: require('handlebars'),
+      html: require('handlebars')
     },
     relativeTo: __dirname,
     path: './public/templates',
+    layoutPath: './public/templates/layout',
+    layout: 'default'
   });
 
   server.route(routes);
