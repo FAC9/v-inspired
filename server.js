@@ -64,13 +64,13 @@ const routes = [
         if (users[user.userId]) {
            total_time = Date.now() - users[user.userId].login_time;
            delete users[user.userId];
-           return reply.view('thank-you', {
+           return reply.view('thank-you.hbs', {
              name: user.profile.givenNames,
              time: total_time / 1000
            })
         }
         userSignIn(user);
-        return reply.view('thank-you', {
+        return reply.view('thank-you.hbs', {
           name: user.profile.givenNames
         });
       })
