@@ -3,6 +3,7 @@ const Inert = require('inert');
 const fs = require('fs');
 const path = require('path');
 const Yoti = require('yoti-node-sdk');
+const Vision = require('vision');
 
 const CLIENT_SDK_ID = 'e2d30c07-90e8-4e68-bdd1-691b4242d0f9';
 
@@ -66,11 +67,19 @@ const routes = [
   }
 ];
 
-server.register([Inert], (err) => {
+server.register([Inert, Vision], (err) => {
 
   server.connection({
     port: process.env.PORT || 3456,
     tls: tls
+  });
+
+  server.views({
+    engines: {
+      html: require('handlebars')
+    },
+    relativeTo: __dirname,
+    path: './public/templates',
   });
 
   server.route(routes);
