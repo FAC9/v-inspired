@@ -35,7 +35,7 @@ h1, h2, p {
   }
 }
 
-.landing-buttons-container {
+.buttons {
   height: 400px;
   width: 100%;
   display: flex;
@@ -49,14 +49,6 @@ h1, h2, p {
     color: #fff;
     padding: 30px;
     font-size: 20px;
-  }
-
-  .btn-arrive {
-    background-color: $blue;
-  }
-
-  .btn-leave {
-    background-color: $green;
   }
 }
 
