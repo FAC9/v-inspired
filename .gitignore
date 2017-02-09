@@ -10,7 +10,7 @@ vinspired.zip
 #sass stuff
 .sass-cache
 public/static/styles.css
-public/styles.css.map
+public/static/styles.css.map
 
 # Logs
 logs
