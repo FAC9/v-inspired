@@ -16,6 +16,10 @@ h1, h2, p {
   margin: 0;
 }
 
+.btn {
+  font-family: 'Rubik', sans-serif;
+}
+
 .landing-page-background {
   background: linear-gradient(
     $transPurple,
@@ -30,8 +34,13 @@ h1, h2, p {
   flex-direction: column;
   justify-content: center;
 
+
   h2 {
-    font-size: 36px;
+    font-size: 70px;
+    font-family: 'Rubik';
+    line-height: 60px;
+    letter-spacing: -3px;
+    text-transform: capitalize;
   }
 }
 
@@ -57,9 +66,18 @@ h1, h2, p {
 }
 
 .nav {
-  height: 100px;
+  height: 60px;
   width: 100%;
   background-color: $purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    height: 20px;
+    width: 170px;
+    margin-left: 100px;
+  }
 }
 
 .message {
