@@ -57,10 +57,15 @@ const routes = [
         if (users[user.userId]) {
            total_time = Date.now() - users[user.userId].login_time;
            delete users[user.userId];
-           return reply(total_time / 1000);
+           return reply.view('thank-you', {
+             name: user.profile.givenNames,
+             time: total_time / 1000
+           })
         }
         userSignIn(user);
-        return reply('Hello ' + user.profile.givenNames);
+        return reply.view('thank-you', {
+          name: user.profile.givenNames
+        });
       })
       .catch(err => {
         console.log(err);
@@ -81,10 +86,10 @@ server.register([Inert, Vision], (err) => {
   }
 
   server.connection(options);
-  
+
   server.views({
     engines: {
-      html: require('handlebars')
+      hbs: require('handlebars')
     },
     relativeTo: __dirname,
     path: './public/templates',
