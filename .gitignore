@@ -1,5 +1,9 @@
 node_modules
-/keys*
+
+/keys/key.pem
+/keys/cert.pem
+
+vinspired.zip
 .DS_Store
 
 #sass stuff

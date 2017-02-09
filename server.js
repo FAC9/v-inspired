@@ -12,10 +12,13 @@ const yoti_key = fs.readFileSync(path.join(__dirname, './keys/yoti-key.pem'));
 
 const client = new Yoti(CLIENT_SDK_ID, yoti_key);
 
-const tls = {
-  key: fs.readFileSync(path.join(__dirname, './keys/key.pem'), 'utf8'),
-  cert: fs.readFileSync(path.join(__dirname, './keys/cert.pem'), 'utf8'),
-};
+let tls = {};
+if(process.env.ENVIRONMENT !== 'deployment') {
+  tls = {
+    key: fs.readFileSync(path.join(__dirname, './keys/key.pem'), 'utf8'),
+    cert: fs.readFileSync(path.join(__dirname, './keys/cert.pem'), 'utf8'),
+  };
+}
 
 let users = {};
 
@@ -69,11 +72,16 @@ const routes = [
 
 server.register([Inert, Vision], (err) => {
 
-  server.connection({
-    port: process.env.PORT || 3456,
-    tls: tls
-  });
+  let options = {
+    port: process.env.PORT || 3456
+  };
 
+  if(process.env.ENVIRONMENT !== "deployment") {
+    options.tls = tls;
+  }
+
+  server.connection(options);
+  
   server.views({
     engines: {
       html: require('handlebars')
