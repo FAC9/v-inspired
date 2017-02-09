@@ -4,6 +4,9 @@
   "description": "Yoti hack day - V-inspired",
   "main": "index.js",
   "scripts": {
+    "buildCss": "sass --watch sass/styles.scss:public/static/styles.css",
+    "devStart": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +25,8 @@
     "inert": "^4.1.0",
     "vision": "^4.1.1",
     "yoti-node-sdk": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
