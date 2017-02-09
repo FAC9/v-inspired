@@ -57,9 +57,18 @@ h1, h2, p {
 }
 
 .nav {
-  height: 100px;
+  height: 60px;
   width: 100%;
   background-color: $purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    height: 20px;
+    width: 170px;
+    margin-left: 100px;
+  }
 }
 
 .message {
