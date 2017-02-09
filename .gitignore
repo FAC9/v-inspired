@@ -6,6 +6,11 @@ node_modules
 vinspired.zip
 .DS_Store
 
+#sass stuff
+.sass-cache
+public/sass/styles.css
+public/styles.css.map
+
 # Logs
 logs
 *.log
