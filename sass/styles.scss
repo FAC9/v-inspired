@@ -5,7 +5,7 @@ $transPurpleDarker: rgba(66, 19, 90, 0.8);
 $blue: #25ABCA;
 $green: #B3C92B;
 $font-color: #ffffff;
-
+$headline-font: 'Rubik', sans-serif;
 
 body {
   margin: 0;
@@ -29,9 +29,53 @@ h1, h2, p {
 /* Layout */
 
 .nav {
-  height: 100px;
+  height: 60px;
   width: 100%;
   background-color: $purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    height: 20px;
+    width: 170px;
+    margin-left: 100px;
+  }
+}
+
+/* Layout */
+
+.message {
+  color: $purple;
+  width: 80%;
+}
+
+.message-heading {
+  padding: 1em;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: $font-color;
+  background-color: $purple;
+  padding: .6em 1.6em;
+  font-size: 2em;
+  margin: 1em;
+  font-family: $headline-font;
+  border-radius: 5px;
+}
+
+.btn:active {
+  background-color: $dark-purple;
+}
+
+/* Yoti buttons and QR */
+
+.qr {
+  height: 200px;
 }
 
 .buttons {
@@ -45,7 +89,7 @@ h1, h2, p {
     align-self: center;
     margin: 50px;
     text-decoration: none;
-    color: #fff;
+    color: $font-color;
     padding: 30px;
     font-size: 20px;
   }
@@ -66,8 +110,13 @@ h1, h2, p {
   justify-content: center;
 
   h2 {
-    font-size: 36px;
+    font-size: 70px;
+    font-family: $headline-font;
+    line-height: 60px;
+    letter-spacing: -3px;
+    text-transform: capitalize;
   }
+
 }
 
 .btn {
