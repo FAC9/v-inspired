@@ -11,6 +11,14 @@ $( document ).ready(function() {
     $('.buttons a').css({
       'font-family': 'Rubik',
       'font-weight': 'bold',
+    }).click(function() {
+      $('#inline-qr-div img').css({
+        'position': 'relative',
+        'height': '200px',
+      })
+      $('.buttons a').css({
+        'display': 'none',
+      })
     });
     $('.buttons a:first-of-type').css('background-color', blue)
     .hover(function() {
