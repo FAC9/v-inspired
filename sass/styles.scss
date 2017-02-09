@@ -1,19 +1,54 @@
 $purple: indigo;
+$dark-purple: #310154;
 $transPurple: rgba(66, 19, 90, 0.5);
 $transPurpleDarker: rgba(66, 19, 90, 0.8);
 $blue: #25ABCA;
 $green: #B3C92B;
+$font-color: #ffffff;
+
 
 body {
   margin: 0;
   padding: 0;
   font-family: helvetica;
   letter-spacing: 1.5px;
-  color: #fff;
+  color: $font-color;
 }
 
 h1, h2, p {
   margin: 0;
+}
+
+/* Helper classes */
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Layout */
+
+.nav {
+  height: 100px;
+  width: 100%;
+  background-color: $purple;
+}
+
+.buttons {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  a, a:hover, a:visited, a:active {
+    align-self: center;
+    margin: 50px;
+    text-decoration: none;
+    color: #fff;
+    padding: 30px;
+    font-size: 20px;
+  }
 }
 
 .landing-page-background {
@@ -35,33 +70,29 @@ h1, h2, p {
   }
 }
 
-.buttons {
-  height: 400px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: $font-color;
+  background-color: $purple;
+  padding: .6em 1.6em;
+  font-size: 2em;
+  margin: 1em;
+}
 
-  a, a:hover, a:visited, a:active {
-    align-self: center;
-    margin: 50px;
-    text-decoration: none;
-    color: #fff;
-    padding: 30px;
-    font-size: 20px;
-  }
+.btn:active {
+  background-color: $dark-purple;
 }
 
 .qr {
   height: 200px;
 }
 
-.nav {
-  height: 100px;
-  width: 100%;
-  background-color: $purple;
-}
-
 .message {
   color: $purple;
+  width: 80%;
+}
+
+.message-heading {
+  padding: 1em;
 }
