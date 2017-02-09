@@ -1,25 +1,55 @@
 <head>
-    <!-- Your header content -->
-    <script src="https://sdk.yoti.com/clients/browser.js"></script>
-    <title>V-Inspired and Yoti</title>
-    <link rel="stylesheet" href="static/styles.css">
+  <!-- Your header content -->
+  <title>V-Inspired and Yoti</title>
+  <link rel="stylesheet" href="static/styles.css">
 </head>
 
 <body>
-    <!-- Your website content -->
+  <!-- Your website content -->
 
-    <!-- This span will create the Yoti button -->
+  <!-- v-inspired logo -->
+  <nav class="nav">
+    <h1>VINSPIRED</h1>
+  </nav>
+
+  <!-- greet the user -->
+  <section class="landing-page-background">
+    <h2>Yoti's volunteering event</h2>
+  </section>
+
+  <!-- buttons for signing in and out -->
+  <div class="landing-buttons-container">
+    <a href="/" class="btn-arrive">I'm arriving</a>
+
+    <a href="/" class="btn-leave">I'm leaving</a>
+  </div>
+
+  <!-- This span will create the Yoti button -->
+  <div class="buttons">
     <span
-        data-yoti-application-id="63ed9e94-3ead-47a9-817a-af47b7c783db"
-        data-yoti-type="inline"
-        data-yoti-scenario-id="b98ef77f-61b8-4546-9e2b-cd715e1bfa2b"
-        data-size="small">
-        Log in with Yoti
-    </span>
+    data-yoti-application-id="63ed9e94-3ead-47a9-817a-af47b7c783db"
+    data-yoti-type="inline"
+    data-yoti-scenario-id="b98ef77f-61b8-4546-9e2b-cd715e1bfa2b"
+    data-size="medium">
+    I'm arriving
+  </span>
 
-    <!-- This script snippet will also be required in your HTML body during the early pilot period -->
-    <script>
-        _ybg.config.service = 'https://www.yoti.com/connect/'
-        _ybg.init()
-    </script>
+  <span
+  data-yoti-application-id="63ed9e94-3ead-47a9-817a-af47b7c783db"
+  data-yoti-type="inline"
+  data-yoti-scenario-id="b98ef77f-61b8-4546-9e2b-cd715e1bfa2b"
+  data-size="medium">
+  I'm leaving
+</span>
+</div>
+
+<!-- This script snippet will also be required in your HTML body during the early pilot period -->
+<script>
+// _ybg.config.service = 'https://www.yoti.com/connect/'
+// _ybg.init()
+</script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="static/index.js">
+
+</script>
 </body>
