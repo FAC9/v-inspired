@@ -41,7 +41,8 @@ h1, h2, p {
     width: 170px;
     margin-left: 100px;
   }
-}
+
+/* Layout */
 
 .message {
   color: $purple;
@@ -114,4 +115,32 @@ h1, h2, p {
     letter-spacing: -3px;
     text-transform: capitalize;
   }
+
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: $font-color;
+  background-color: $purple;
+  padding: .6em 1.6em;
+  font-size: 2em;
+  margin: 1em;
+}
+
+.btn:active {
+  background-color: $dark-purple;
+}
+
+.qr {
+  height: 200px;
+}
+
+.message {
+  color: $purple;
+  width: 80%;
+}
+
+.message-heading {
+  padding: 1em;
 }
