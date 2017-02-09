@@ -30,6 +30,14 @@ function userSignIn (user) {
   }
 }
 
+function generateTimeString(milliseconds) {
+  const totalMinutes = milliseconds / 60000;
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = Math.floor(totalMinutes % 60);
+  const hoursString = (hours ? `${hours} hour${hours > 1 ? 's ' : ' '}`: '');
+  return `${hoursString}${minutes} minutes`;
+}
+
 const routes = [
   {
     method: 'GET',
@@ -62,11 +70,11 @@ const routes = [
         };
 
         if (users[user.userId]) {
-           total_time = Date.now() - users[user.userId].login_time;
+           totalTime = Date.now() - users[user.userId].login_time;
            delete users[user.userId];
            return reply.view('thank-you.hbs', {
              name: user.profile.givenNames,
-             time: total_time / 1000
+             time: generateTimeString(totalTime)
            })
         }
         userSignIn(user);
