@@ -100,15 +100,15 @@ h1, h2, p {
 }
 
 .buttons {
-  height: 200px;
+  height: 250px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  position: fixed;
+  position: absolute;
   z-index: 1;
-  bottom: 10rem;
+  bottom: 100px;
 
   a, a:hover, a:visited, a:active {
     align-self: center;
