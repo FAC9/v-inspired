@@ -8,7 +8,7 @@ vinspired is the leading volunteering charity for 14-25 year olds.
 
 This application allows volunteers to sign in and out of volunteering events by scanning a Yoti QR code.
 
-When they sign out the application tells them how long they have been volunteering for.
+When they sign out, the application tells them how long their volunteering session was.
 
 ## Why?
 
@@ -18,14 +18,13 @@ Additionally, event organisers benefit from knowing which people have turned up 
 
 ## How?
 
-
-Each volunteering event is identified through its QR code. When a volunteer scans the code their ID, email and the current time are saved in the app.
+Each volunteering event is identified through its QR code. When a volunteer scans the code, their ID, email and the current time are saved in the app.
 
 When they log out the details are retrieved and the total volunteering time calculated.
 
 ## Roadmap
 
-In this prototype the login details are simply saved in an object. In order to persist the data we intend to save them to a database.
+In this prototype the login details are simply saved in an object. In order to persist the data, we intend to save them to a database.
 
 The prototype uses one Yoti application with one QR code. We intend to work with Yoti so that our application can either generate unique QR codes for each event or pass in information allowing the app to track multiple events at once.
 
@@ -44,3 +43,15 @@ Back-end:
 * Hapi
 
 * Yoti Node SDK
+
+## Team
+
+Product owner: Tori from vinspired
+
+Developers: Ewelina Skibinska, Emily Bertwistle, Tom Barrett
+
+## Build info
+
+This app needs to be run in HTTPS.
+
+To build, clone, and ```npm run build:serve```
