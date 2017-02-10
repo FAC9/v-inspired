@@ -31,7 +31,7 @@ h1, h2, p {
 
 .nav {
   height: 60px;
-  width: 100%;
+  width: 100vw;
   background-color: $purple;
   display: flex;
   flex-direction: column;
@@ -43,8 +43,6 @@ h1, h2, p {
     margin-left: 100px;
   }
 }
-
-/* Layout */
 
 .message {
   color: $purple;
@@ -67,10 +65,10 @@ h1, h2, p {
   margin: 1em;
   font-family: $headline-font;
   border-radius: 5px;
-}
 
-.btn:active {
-  background-color: $dark-purple;
+  &:active {
+    background-color: $dark-purple;
+  }
 }
 
 /* Yoti buttons and QR */
@@ -104,7 +102,7 @@ h1, h2, p {
   url("../media/volunteer.jpg");
   background-size: cover;
   height: 400px;
-  width: 100%;
+  width: 100vw;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -116,33 +114,8 @@ h1, h2, p {
     line-height: 60px;
     letter-spacing: -3px;
     text-transform: uppercase;
+    width: 80%;
+    align-self: center;
   }
 
-}
-
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  color: $font-color;
-  background-color: $purple;
-  padding: .6em 1.6em;
-  font-size: 2em;
-  margin: 1em;
-}
-
-.btn:active {
-  background-color: $dark-purple;
-}
-
-.qr {
-  height: 200px;
-}
-
-.message {
-  color: $purple;
-  width: 80%;
-}
-
-.message-heading {
-  padding: 1em;
 }
