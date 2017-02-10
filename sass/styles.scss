@@ -61,10 +61,11 @@ h1, h2, p {
   color: $font-color;
   background-color: $purple;
   padding: .6em 1.6em;
-  font-size: 2em;
   margin: 1em;
   font-family: $headline-font;
   border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
 
   &:active {
     background-color: $dark-purple;
@@ -117,5 +118,18 @@ h1, h2, p {
     width: 80%;
     align-self: center;
   }
+}
 
+.back-button {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+
+  a {
+    width: 170px;
+    text-align: center;
+    align-self: center;
+  }
 }
