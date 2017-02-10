@@ -30,6 +30,7 @@
     "yoti-node-sdk": "^1.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "sass": "^0.5.0"
   }
 }
