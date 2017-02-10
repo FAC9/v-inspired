@@ -4,13 +4,15 @@ $transPurple: rgba(66, 19, 90, 0.5);
 $transPurpleDarker: rgba(66, 19, 90, 0.8);
 $blue: #25ABCA;
 $green: #B3C92B;
+$hoverGreen: #bfd539;
 $font-color: #ffffff;
 $headline-font: 'Rubik', sans-serif;
+$main-font: 'Work Sans', sans-serif;
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Work Sans', sans-serif;;
+  font-family: $main-font;
   letter-spacing: 1.5px;
   width: 100vw;
   color: $font-color;
@@ -89,16 +91,12 @@ h1, h2, p {
   font-weight: bold;
   font-size: 18px;
 
-  &:active {
-    background-color: $dark-purple;
+  &:active, &:hover, &:focus {
+    background-color: $hoverGreen;
   }
 }
 
 /* Yoti buttons and QR */
-
-.qr {
-  height: 200px;
-}
 
 .buttons {
   height: 250px;
@@ -111,12 +109,9 @@ h1, h2, p {
   z-index: 1;
   bottom: 100px;
 
-  a, a:hover, a:visited, a:active {
+  a {
     align-self: center;
-    text-decoration: none;
-    color: $font-color;
     padding: 30px;
-    font-size: 20px;
     margin: 0 25px;
   }
 }
@@ -140,7 +135,7 @@ h1, h2, p {
   h2 {
     font-size: 70px;
     font-family: $headline-font;
-    line-height: 60px;
+    line-height: 65px;
     letter-spacing: -3px;
     text-transform: uppercase;
     width: 80%;
