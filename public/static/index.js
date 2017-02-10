@@ -14,10 +14,12 @@ $( document ).ready(function() {
     }).click(function() {
       $('#inline-qr-div img').css({
         'position': 'relative',
-        'height': '200px',
       })
       $('.buttons a').css({
         'display': 'none',
+      })
+      $('.back-button').css({
+        'display': 'flex',
       })
     });
     $('.buttons a:first-of-type').css('background-color', blue)
